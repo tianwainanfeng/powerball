@@ -21,6 +21,7 @@ db_config = {
 
 # CSV file
 CSV_file = "./data/powerball.csv"
+latest_result_file = "./data/latest_powerball.csv"
 
 # ======== Extract the latest result ========
 
@@ -140,6 +141,12 @@ if __name__ == "__main__":
         powerplay = str(float(latest_record['powerplay']))
         
         formatted_record = [draw_date] + white_balls + [powerball, powerplay]
+
+    # Update latest_result_file
+    with open(latest_result_file, "w", newline="") as file:
+        writer = csv.writer(file, lineterminator="\n")
+        writer.writerow(formatted_record)
+
     # Add latest results into CSV_file if needed
     record_exists = False
     with open(CSV_file, 'r', newline="") as file:

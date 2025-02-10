@@ -1,0 +1,6 @@
+# ignore environmental variables
+*.env
+plots/*jpg
+plots/*pdf
+data/*powerball.csv
+*.swp

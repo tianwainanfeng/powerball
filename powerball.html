@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Powerball Results</title>
+    <script>
+        async function loadLatestResult() {
+            try {
+                const response = await fetch('data/latest_powerball.csv');
+                const text = await response.text();
+                const lines = text.trim().split('\n');
+                if (lines.length > 0) {
+                    const latest = lines[0].split(',');
+                    document.getElementById("draw_date").innerText = latest[0];
+                    document.getElementById("ball1").innerText = latest[1];
+                    document.getElementById("ball2").innerText = latest[2];
+                    document.getElementById("ball3").innerText = latest[3];
+                    document.getElementById("ball4").innerText = latest[4];
+                    document.getElementById("ball5").innerText = latest[5];
+                    document.getElementById("powerball").innerText = latest[6];
+                    document.getElementById("powerplay").innerText = latest[7];
+                }
+            } catch (error) {
+                console.error("Error loading the latest Powerball results:", error);
+            }
+        }
+        window.onload = loadLatestResult;
+    </script>
+    <style>
+        body {
+            text-align: center;
+        }
+        table {
+            margin: 0 auto;
+        }
+        .plot-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        img {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Latest Powerball Winning Numbers</h1>
+    <table border="1">
+        <tr>
+            <th>Draw Date</th>
+            <th>Ball 1</th>
+            <th>Ball 2</th>
+            <th>Ball 3</th>
+            <th>Ball 4</th>
+            <th>Ball 5</th>
+            <th>Powerball</th>
+            <th>Power Play</th>
+        </tr>
+        <tr>
+            <td id="draw_date">Loading...</td>
+            <td id="ball1"></td>
+            <td id="ball2"></td>
+            <td id="ball3"></td>
+            <td id="ball4"></td>
+            <td id="ball5"></td>
+            <td id="powerball"></td>
+            <td id="powerplay"></td>
+        </tr>
+    </table>
+    
+    <h2>Powerball Analysis Plots</h2>
+    <div class="plot-container">
+        <img src="plots/powerball_distribution.jpg" alt="Powerball Distribution">
+        <img src="plots/white_ball_each_distribution.jpg" alt="White Ball Each Distribution">
+        <img src="plots/powerball_vs_weekday.jpg" alt="Powerball vs Weekday">
+        <img src="plots/white_ball_gaps.jpg" alt="White Ball Gaps">
+        <img src="plots/white_ball_correlation.jpg" alt="White Ball Correlation">
+        <img src="plots/white_ball_pairs.jpg" alt="White Ball Pairs">
+        <img src="plots/white_ball_distribution.jpg" alt="White Ball Distribution">
+    </div>
+</body>
+</html>
+

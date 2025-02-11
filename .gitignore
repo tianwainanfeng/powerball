@@ -4,3 +4,4 @@ plots/*jpg
 plots/*pdf
 data/*powerball.csv
 *.swp
+backup_*

@@ -10,6 +10,8 @@ from itertools import combinations
 do_print = False
 plot_path = './plots/'
 
+sns.set_style("darkgrid") # note: all "seaborn-darkgrid" changed to "seaborn-v0_8-darkgrid"
+
 colors = ["blue", "green", "red", "purple", "orange", "brown", "pink"]
 markers = ["o", "s", "D", "^", "v", "P", "*"]
 
@@ -51,7 +53,7 @@ if do_print:
 powerball_counts = df["powerball"].value_counts().sort_index()
 
 jpg_filename_powerball = "powerball_distribution.jpg"
-with plt.style.context('seaborn-darkgrid'):
+with plt.style.context('seaborn-v0_8-darkgrid'):
     plt.figure(figsize=(10, 5))
     plt.bar(powerball_counts.index, powerball_counts.values, color='red')
     plt.xlabel("Powerball Number")
@@ -83,7 +85,7 @@ if do_print:
     print(bin_centers)
 
 jpg_filename_powerball_weekday = "powerball_vs_weekday.jpg"
-with plt.style.context('seaborn-darkgrid'):
+with plt.style.context('seaborn-v0_8-darkgrid'):
     plt.figure(figsize=(12, 6))
 
     for idx, day in enumerate(valid_weekdays):
@@ -126,7 +128,7 @@ white_ball_counts = all_white_balls.value_counts().sort_index()
 
 # Create a figure and save to PDF
 jpg_filename_whiteballs = "white_ball_distribution.jpg"
-with plt.style.context('seaborn-darkgrid'):
+with plt.style.context('seaborn-v0_8-darkgrid'):
     plt.figure(figsize=(15, 5))
     plt.bar(white_ball_counts.index, white_ball_counts.values, color='blue')
     plt.xlabel("White Ball Number")

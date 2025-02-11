@@ -12,6 +12,7 @@ Version: 1.0
   
   - plots
     - \*.pdf # some plots
+    - \*.jpg # some plots
   
   - prepare_powerball_data.py # convert dataset from old format to new format
   - prepare_powerball_data.sh # convert dataset from old format to new format

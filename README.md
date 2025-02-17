@@ -50,9 +50,9 @@ Version: 1.0
   From terminal, run:
       ```crontab -e```
   This will open a crontab, add the tasks you want to schedule.
-  For example, the following will run query_update_powerball_table.py every 48 hours on the server:
+  For example, the following will run query_update_powerball_table.py at midnight every 2 days on the server:
       ```
-	  0 */48 * * * /usr/bin/python3 /path/to/query_update_powerball_table.py
+	  0 0 */2 * * /usr/bin/python3 /path/to/query_update_powerball_table.py
     ```
   To verify the cron job, run:
       ```crontab -l```

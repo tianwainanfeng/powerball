@@ -4,4 +4,5 @@ plots/*jpg
 plots/*pdf
 data/*powerball.csv
 *.swp
+.obsidian
 backup_*

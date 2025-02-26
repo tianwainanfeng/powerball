@@ -62,7 +62,7 @@ def fetch_latest_powerball():
                 if len(white_balls) != 5 or not powerball:
                     print("Invalid data format. Retrying...")
                     retries -= 1
-                    time.sleep(1)
+                    time.sleep(20)
                     continue
 
                 print(f"Latest Powerball: {draw_date}, {white_balls}, Powerball: {powerball}, Power Play: {power_play}")
@@ -71,11 +71,11 @@ def fetch_latest_powerball():
             except Exception as e:
                 print(f"Error parsing data: {e}")
                 retries -= 1
-                time.sleep(1)
+                time.sleep(20)
         else:
             print("Winning numbers section not found. Retrying...")
             retries -= 1
-            time.sleep(1)
+            time.sleep(20)
 
     return None
 

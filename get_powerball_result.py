@@ -1,3 +1,4 @@
+import time
 import requests
 from datetime import datetime
 from bs4 import BeautifulSoup
@@ -47,11 +48,11 @@ if response.status_code == 200:
             else:
                 print("Draw date not found in the section.")
                 retries -= 1
-                time.sleep(1)  # Wait a bit before retrying
+                time.sleep(20)  # Wait a bit before retrying
         else:
             print("Winning numbers section not found.")
             retries -= 1
-            time.sleep(1)  # Wait a bit before retrying
+            time.sleep(20)  # Wait a bit before retrying
 else:
     print(f"Failed to fetch the webpage. HTTP Status code: {response.status_code}")
 
